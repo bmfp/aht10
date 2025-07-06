@@ -13,7 +13,7 @@
 
 extern crate embedded_hal as hal;
 
-use hal::blocking::delay::DelayMs;
+use hal::blocking::delay::DelayNs;
 use hal::blocking::i2c::{Read, Write, WriteRead};
 
 const I2C_ADDRESS: u8 = 0x38;
@@ -98,7 +98,7 @@ impl Temperature {
 impl<I2C, D, E> AHT10<I2C, D>
 where
     I2C: WriteRead<Error = E> + Write<Error = E> + Read<Error = E>,
-    D: DelayMs<u16>,
+    D: DelayNs<u32>,
 {
     /// Creates a new AHT10 device from an I2C peripheral.
     pub fn new(i2c: I2C, delay: D) -> Result<Self, Error<E>> {

@@ -13,8 +13,8 @@
 
 extern crate embedded_hal as hal;
 
-use hal::blocking::delay::DelayNs;
-use hal::blocking::i2c::{Read, Write, WriteRead};
+use hal::delay::DelayNs;
+use hal::i2c::{Read, Write, WriteRead};
 
 const I2C_ADDRESS: u8 = 0x38;
 
